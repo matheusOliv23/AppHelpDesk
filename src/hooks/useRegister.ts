@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { Alert } from 'react-native';
 import { RegisterService } from 'src/services/register.service';
 import { IRegister } from 'src/types/Register';
-import { RegisterSchema } from '../validations/yup/register-schema';
 import { useNavigation } from '@react-navigation/native';
+import { RegisterSchema } from 'src/validations/yup/register-schema';
 
 export const useRegister = () => {
   const { navigate } = useNavigation();
