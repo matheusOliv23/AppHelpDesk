@@ -12,7 +12,7 @@ export const Input = forwardRef((props: Props, ref: Ref<TextInput>) => {
   const { COLORS } = useTheme();
 
   return (
-    <View style={{ marginLeft: 16, marginRight: 16 }}>
+    <View>
       <S.Container>
         {props.icon && props.icon}
         <S.CustomInput
