@@ -12,8 +12,7 @@ import { Button } from 'src/components/shared/Button';
 
 import { Controller } from 'react-hook-form';
 import { Link } from '@react-navigation/native';
-
-import { useRegister } from 'src/components/hooks/useRegister';
+import { useRegister } from 'src/hooks/useRegister';
 
 export default function Register() {
   const { COLORS } = useTheme();
@@ -107,7 +106,7 @@ export default function Register() {
             />
             <Text style={{ fontSize: 16, color: COLORS.GRAY_300 }}>
               Já tem uma conta?{' '}
-              <Link to={'/signin'} style={{ color: COLORS.WHITE }}>
+              <Link to={'/login'} style={{ color: COLORS.WHITE }}>
                 Entrar
               </Link>
             </Text>
