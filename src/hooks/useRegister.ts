@@ -13,6 +13,7 @@ export const useRegister = () => {
   const {
     control,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(RegisterSchema),
@@ -21,7 +22,18 @@ export const useRegister = () => {
   const { mutate, isPending } = useMutation({
     mutationFn: (data: IRegister) => RegisterService.createAccount(data),
     onSuccess: () => navigate('login'),
-    onError: (error) => Alert.alert('Erro', error.message),
+    onError: (error: any) => {
+      Object.keys(error.response.data.errors).forEach((key: any) => {
+        setError(key, {
+          type: 'manual',
+          message:
+            error.response.data.errors[key][0] ===
+            'The email has already been taken.'
+              ? 'O email já está em uso'
+              : error.response.data.errors[key][0],
+        });
+      });
+    },
   });
 
   const onSubmit = (data: IRegister) => mutate(data);

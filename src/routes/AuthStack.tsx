@@ -26,23 +26,43 @@ export function AuthRoutes() {
       <Tab.Navigator
         style={{ backgroundColor: COLORS.GRAY_700 }}
         screenOptions={{
+          tabBarPressColor: 'transparent',
           tabBarStyle: {
             backgroundColor: COLORS.GRAY_700,
             borderBottomColor: COLORS.YELLOW_500,
           },
           tabBarLabelStyle: {
-            borderWidth: 1,
             color: COLORS.WHITE,
             fontSize: 10,
+            backgroundColor: COLORS.GRAY_600,
+            padding: 8,
+            paddingHorizontal: 36,
+            borderRadius: 6,
           },
-          tabBarActiveTintColor: 'transparent',
+
           tabBarIndicatorStyle: {
             backgroundColor: 'transparent',
           },
         }}
       >
-        <Tab.Screen name='Em andamento' component={Waiting} />
-        <Tab.Screen name='Finalizados' component={Finished} />
+        <Tab.Screen
+          name='Em andamento'
+          component={Waiting}
+          options={{
+            tabBarIndicatorStyle: {
+              backgroundColor: COLORS.YELLOW_500,
+            },
+          }}
+        />
+        <Tab.Screen
+          name='Finalizados'
+          component={Finished}
+          options={{
+            tabBarIndicatorStyle: {
+              backgroundColor: COLORS.GREEN_700,
+            },
+          }}
+        />
       </Tab.Navigator>
     );
   }
