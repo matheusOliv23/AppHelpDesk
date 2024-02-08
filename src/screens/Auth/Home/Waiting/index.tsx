@@ -12,7 +12,8 @@ import { useListSolicitations } from 'src/hooks/useListSolicitations';
 export default function Waiting() {
   const { COLORS } = useTheme();
   const navigation = useNavigation();
-  const { solicitations, isPending } = useListSolicitations();
+  const { solicitations, isPending, isRefetching, setCurrentPage, isListEnd } =
+    useListSolicitations();
 
   if (isPending) {
     return <Loading />;
@@ -20,30 +21,41 @@ export default function Waiting() {
 
   return (
     <S.Container>
-      <FlatList
-        data={solicitations?.data?.filter(
-          (item: ISolicitationResponse) => item.status === 'open'
-        )}
-        keyExtractor={(item) => item.id}
-        showsVerticalScrollIndicator={false}
-        ListEmptyComponent={EmptyList}
-        renderItem={({ item }) => {
-          return (
-            <Card
-              onPress={() => navigation.navigate('Solução', { id: item.id })}
-              time={item.created_at}
-              title={item.title}
-              borderLeftColor={COLORS.YELLOW_500}
-              icon={
-                <Image
-                  source={require('src/assets/icons/compass.png')}
-                  alt='Compass icon'
-                />
-              }
-            />
-          );
-        }}
-      />
+      {isRefetching ? (
+        <Loading />
+      ) : (
+        <FlatList
+          data={solicitations?.data?.filter(
+            (item: ISolicitationResponse) => item.status === 'open'
+          )}
+          keyExtractor={(item) => item.id}
+          showsVerticalScrollIndicator={false}
+          ListEmptyComponent={EmptyList}
+          onScrollToTop={() => setCurrentPage((prev) => prev - 1)}
+          onEndReached={() => {
+            if (!isListEnd) {
+              setCurrentPage((prev) => prev + 1);
+            }
+          }}
+          onEndReachedThreshold={0.2}
+          renderItem={({ item }) => {
+            return (
+              <Card
+                onPress={() => navigation.navigate('Solução', { id: item.id })}
+                time={item.created_at}
+                title={item.title}
+                borderLeftColor={COLORS.YELLOW_500}
+                icon={
+                  <Image
+                    source={require('src/assets/icons/compass.png')}
+                    alt='Compass icon'
+                  />
+                }
+              />
+            );
+          }}
+        />
+      )}
       <TouchableOpacity
         style={{
           position: 'absolute',
