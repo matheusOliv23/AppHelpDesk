@@ -7,6 +7,7 @@ export const Container = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.COLORS.GRAY_600};
   padding: 0 24px;
   gap: 16px;
+  margin-top: -36px;
 `;
 
 export const InputCustom = styled(TextInput)`

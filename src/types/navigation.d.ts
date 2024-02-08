@@ -4,6 +4,13 @@ export declare global {
       register: undefined;
       login: undefined;
       home: undefined;
+      Solicitação: undefined;
+      Solução: {
+        id: string;
+      };
+      Concluído: {
+        id: string;
+      };
     }
   }
 }

@@ -6,13 +6,14 @@ import React, { Ref, forwardRef } from 'react';
 type Props = TextInputProps & {
   icon?: React.ReactNode;
   errorText?: string;
+  styleContainer?: {};
 };
 
 export const Input = forwardRef((props: Props, ref: Ref<TextInput>) => {
   const { COLORS } = useTheme();
 
   return (
-    <View>
+    <View style={props.styleContainer}>
       <S.Container>
         {props.icon && props.icon}
         <S.CustomInput

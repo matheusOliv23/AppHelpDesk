@@ -36,6 +36,7 @@ export default function Login() {
                 maxLength={35}
                 placeholder='Email'
                 errorText={errors.email?.message}
+                styleContainer={{ marginLeft: 10, marginRight: 10 }}
                 icon={
                   <Fontisto name='email' size={16} color={COLORS.GRAY_300} />
                 }
@@ -54,6 +55,7 @@ export default function Login() {
                 secureTextEntry
                 placeholder='Senha'
                 errorText={errors.password?.message}
+                styleContainer={{ marginLeft: 10, marginRight: 10 }}
                 icon={<Octicons name='key' size={16} color={COLORS.GRAY_300} />}
               />
             )}
