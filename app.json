@@ -1,33 +1,36 @@
 {
   "expo": {
     "name": "rocket-help",
-    "slug": "rocket-help",
+    "slug": "helpdesk",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/help.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#202024"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/help.png",
+        "backgroundColor": "#202024"
+      },
+      "package": "com.matheushenri.helpdesk"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/help.png"
     },
-    "plugins": [
-      "expo-font"
-    ]
+    "plugins": ["expo-font"],
+    "extra": {
+      "eas": {
+        "projectId": "b8d70b5f-1dfe-440f-925a-62e7accb6048"
+      }
+    },
+    "owner": "matheushenri"
   }
 }
