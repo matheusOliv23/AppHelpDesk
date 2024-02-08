@@ -22,7 +22,7 @@ export const useCreateSolicitation = (navigation: any) => {
       SolicitationService.createSolicitation(data),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['solicitations'] });
-      await navigation.navigate('Em andamento');
+      await navigation.navigate('home', { screen: 'Andamento' });
     },
     onError: () => setError('Erro ao criar solicitação'),
   });

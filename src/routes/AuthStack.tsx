@@ -39,19 +39,19 @@ export function AuthRoutes() {
             paddingHorizontal: 36,
             borderRadius: 6,
           },
-
           tabBarIndicatorStyle: {
             backgroundColor: 'transparent',
           },
         }}
       >
         <Tab.Screen
-          name='Em andamento'
+          name='Andamento'
           component={Waiting}
           options={{
             tabBarIndicatorStyle: {
               backgroundColor: COLORS.YELLOW_500,
             },
+            tabBarLabel: 'Em andamento',
           }}
         />
         <Tab.Screen

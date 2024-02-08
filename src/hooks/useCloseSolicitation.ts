@@ -18,7 +18,7 @@ export const useCloseSolicitation = (navigation: any, id: string) => {
       SolicitationService.closeSolicitation(id, solution),
     onSuccess: async () => {
       await queryClient.invalidateQueries({ queryKey: ['solicitations'] });
-      await navigation.navigate('Finalizados');
+      await navigation.navigate('home', { screen: 'Finalizados' });
     },
     onError: () => setError('Erro ao enviar solução'),
   });

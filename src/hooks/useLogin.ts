@@ -22,7 +22,7 @@ export const useLogin = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: (data: ILogin) => signIn(data.email, data.password),
-    onSuccess: () => navigate('Em andamento'),
+    onSuccess: () => navigate('home', { screen: 'Andamento' }),
     onError: () => setError('As credenciais informadas estão incorretas'),
   });
 

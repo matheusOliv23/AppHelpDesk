@@ -3,9 +3,11 @@ export declare global {
     interface RootParamList {
       register: undefined;
       login: undefined;
-      home: undefined;
+      home: {
+        screen: 'Andamento' | 'Finalizados';
+      };
       Finalizados: undefined;
-      'Em andamento': undefined;
+      Andamento: undefined;
       Solicitação: undefined;
       Solução: {
         id: string;
