@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
 interface ContainerProps {
@@ -19,6 +19,7 @@ export const Container = styled(View)<ContainerProps>`
     justify-content: space-between;
     flex-direction: row;
     padding: 0 16px;
+    margin-bottom: 24px;
   `}
 `;
 

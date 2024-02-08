@@ -1,8 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
-import { Alert } from 'react-native';
-import { IRegister } from 'src/types/Register';
 import { useNavigation } from '@react-navigation/native';
 import { LoginSchema } from 'src/validations/yup/login-schema';
 import { useAuth } from 'src/context/Auth';

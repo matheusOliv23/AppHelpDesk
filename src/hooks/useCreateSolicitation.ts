@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { NewSolicitationSchema } from 'src/validations/yup/solicitation-schema';
@@ -7,6 +7,7 @@ import { SolicitationService } from 'src/services/solicitation.service';
 
 export const useCreateSolicitation = (navigation: any) => {
   const [error, setError] = useState('');
+  const queryClient = useQueryClient();
 
   const {
     control,
@@ -19,7 +20,10 @@ export const useCreateSolicitation = (navigation: any) => {
   const { mutate, isPending } = useMutation({
     mutationFn: (data: ISolicitation) =>
       SolicitationService.createSolicitation(data),
-    onSuccess: async () => await navigation.navigate('home'),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ['solicitations'] });
+      await navigation.navigate('home');
+    },
     onError: () => setError('Erro ao criar solicitação'),
   });
 
