@@ -4,17 +4,15 @@ import * as S from './styles';
 import Card from 'src/components/shared/Card';
 import { useTheme } from 'styled-components/native';
 import { Button } from 'src/components/shared/Button';
-import { useQuery } from '@tanstack/react-query';
-import { SolicitationService } from 'src/services/solicitation.service';
 import { Loading } from 'src/components/shared/Loading';
 import EmptyList from 'src/components/shared/EmptyList';
+import { useNavigation } from '@react-navigation/native';
+import { useListSolicitations } from 'src/hooks/useListSolicitations';
 
-export default function Waiting(navigation: any) {
+export default function Waiting() {
   const { COLORS } = useTheme();
-  const { data: solicitations, isPending } = useQuery({
-    queryKey: ['solicitations'],
-    queryFn: () => SolicitationService.getSolicitations(String(1)),
-  });
+  const navigation = useNavigation();
+  const { solicitations, isPending } = useListSolicitations();
 
   if (isPending) {
     return <Loading />;
