@@ -30,12 +30,13 @@ export default function Finished() {
         renderItem={({ item }) => {
           return (
             <Card
-              time={item.time}
+              onPress={() => navigation.navigate('Concluído', { id: item.id })}
+              time={item.created_at}
               title={item.title}
               borderLeftColor={COLORS.GREEN_700}
               icon={
                 <Image
-                  source={require('src/assets/icons/compass.png')}
+                  source={require('src/assets/icons/circle.png')}
                   alt='Compass icon'
                 />
               }

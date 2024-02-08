@@ -12,6 +12,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Solicitation from 'src/screens/Auth/Solicitation';
 
 import HeaderSolicitation from 'src/components/Solicitation/HeaderSolicitation';
+import OpenSolicitation from 'src/screens/Auth/OpenSolicitation';
+import FinishedSolicitation from 'src/screens/Auth/FinishedSolution';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -63,6 +65,28 @@ export function AuthRoutes() {
         <Screen
           name='Solicitação'
           component={Solicitation}
+          options={{
+            header: () => (
+              <SafeAreaView>
+                <HeaderSolicitation />
+              </SafeAreaView>
+            ),
+          }}
+        />
+        <Screen
+          name='Solução'
+          component={OpenSolicitation}
+          options={{
+            header: () => (
+              <SafeAreaView>
+                <HeaderSolicitation />
+              </SafeAreaView>
+            ),
+          }}
+        />
+        <Screen
+          name='Concluído'
+          component={FinishedSolicitation}
           options={{
             header: () => (
               <SafeAreaView>

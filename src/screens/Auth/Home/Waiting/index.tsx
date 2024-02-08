@@ -21,7 +21,7 @@ export default function Waiting() {
   return (
     <S.Container>
       <FlatList
-        data={solicitations.data.filter(
+        data={solicitations?.data?.filter(
           (item: ISolicitationResponse) => item.status === 'open'
         )}
         keyExtractor={(item) => item.id}
@@ -30,6 +30,7 @@ export default function Waiting() {
         renderItem={({ item }) => {
           return (
             <Card
+              onPress={() => navigation.navigate('Solução', { id: item.id })}
               time={item.created_at}
               title={item.title}
               borderLeftColor={COLORS.YELLOW_500}
