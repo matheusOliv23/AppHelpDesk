@@ -1,21 +1,13 @@
 import React from 'react';
-import { View, Image, Pressable } from 'react-native';
+import { Image, Pressable } from 'react-native';
 import Title from 'src/components/shared/Title';
-import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
+import * as S from './styles';
 
 export default function HeaderSolicitation() {
-  const { COLORS } = useTheme();
   const navigation = useNavigation();
   return (
-    <View
-      style={{
-        backgroundColor: COLORS.GRAY_600,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        paddingTop: 50,
-      }}
-    >
+    <S.HeaderContainer>
       <Pressable
         onPress={() => navigation.goBack()}
         style={{
@@ -27,6 +19,6 @@ export default function HeaderSolicitation() {
         <Image source={require('src/assets/icons/back.png')} />
       </Pressable>
       <Title title='Solicitação' />
-    </View>
+    </S.HeaderContainer>
   );
 }
