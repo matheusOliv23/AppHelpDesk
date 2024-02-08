@@ -14,10 +14,11 @@ export const Input = forwardRef((props: Props, ref: Ref<TextInput>) => {
 
   return (
     <View style={props.styleContainer}>
-      <S.Container>
+      <S.Container error={props.errorText}>
         {props.icon && props.icon}
         <S.CustomInput
           {...props}
+          error={props.errorText}
           ref={ref}
           placeholderTextColor={COLORS.GRAY_300}
         />

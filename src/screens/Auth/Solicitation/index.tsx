@@ -50,6 +50,7 @@ export default function Solicitation({ navigation }: SolicitationProps) {
             value={value}
             placeholder='Descrição do problema'
             placeholderTextColor={COLORS.GRAY_300}
+            error={errors.description?.message}
             multiline
             style={{
               marginTop: 24,

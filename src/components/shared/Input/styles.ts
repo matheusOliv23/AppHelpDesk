@@ -1,8 +1,12 @@
 import { Text, TextInput, View } from 'react-native';
 import styled, { css } from 'styled-components/native';
 
-export const Container = styled(View)`
-  ${({ theme }) => css`
+interface Props {
+  error?: string;
+}
+
+export const Container = styled(View)<Props>`
+  ${({ theme, error }) => css`
     flex: 1;
     flex-direction: row;
     align-items: center;
@@ -10,7 +14,9 @@ export const Container = styled(View)`
     min-height: 56px;
     max-height: 56px;
     background-color: ${theme.COLORS.GRAY_700};
-    color: ${theme.COLORS.WHITE};
+    color: ${error ? theme.COLORS.RED_ERROR : theme.COLORS.GRAY_100};
+    border-color: ${error ? theme.COLORS.RED_ERROR : theme.COLORS.GRAY_100};
+    border-width: ${error ? '1px' : '0px'};
     font-size: ${theme.FONT_SIZE.MD}px;
     border-radius: 6px;
     padding: 16px;
@@ -18,11 +24,11 @@ export const Container = styled(View)`
   `}
 `;
 
-export const CustomInput = styled(TextInput)`
-  ${({ theme }) => css`
-    color: ${theme.COLORS.WHITE};
+export const CustomInput = styled(TextInput)<Props>`
+  ${({ theme, error }) => css`
+    color: ${error ? theme.COLORS.RED_ERROR : theme.COLORS.GRAY_100};
     width: 100%;
-    border-color: ${theme.COLORS.GRAY_500};
+    border-color: ${error ? theme.COLORS.RED_ERROR : theme.COLORS.GRAY_500};
   `}
 `;
 
