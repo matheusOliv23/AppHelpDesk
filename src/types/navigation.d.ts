@@ -4,6 +4,8 @@ export declare global {
       register: undefined;
       login: undefined;
       home: undefined;
+      Finalizados: undefined;
+      'Em andamento': undefined;
       Solicitação: undefined;
       Solução: {
         id: string;
