@@ -1,8 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { REACT_APP_API_URL } from '@env';
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: `https://rocket-help.yupiweb.com.br/api`,
+  baseURL: `${REACT_APP_API_URL}`,
 });
 
 api.interceptors.request.use(async (request) => {
