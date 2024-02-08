@@ -4,10 +4,13 @@ import * as S from './styles';
 import Title from 'src/components/shared/Title';
 import { useTheme } from 'styled-components/native';
 import { useAuth } from 'src/context/Auth';
+import useCountSolicitations from 'src/store/useCountSolicitations';
 
 export default function HeaderTitle() {
   const { COLORS } = useTheme();
   const { signOut } = useAuth();
+  const { number } = useCountSolicitations();
+
   return (
     <View>
       <S.HeaderContainer>
@@ -25,7 +28,7 @@ export default function HeaderTitle() {
           }}
         >
           <Title title='Solicitações' />
-          <Text style={{ color: COLORS.GRAY_200 }}>0</Text>
+          <Text style={{ color: COLORS.GRAY_200 }}>{number}</Text>
         </View>
       </S.Container>
     </View>
