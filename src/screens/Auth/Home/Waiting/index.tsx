@@ -30,7 +30,7 @@ export default function Waiting() {
         renderItem={({ item }) => {
           return (
             <Card
-              time={item.time}
+              time={item.created_at}
               title={item.title}
               borderLeftColor={COLORS.YELLOW_500}
               icon={
