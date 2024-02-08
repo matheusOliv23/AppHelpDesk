@@ -20,6 +20,7 @@ export const AuthContext = createContext<AuthContextDataProps>(
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [authData, setAuthData] = useState<AuthData>();
   const [loading, setLoading] = useState(true);
+ 
 
   useEffect(() => {
     loadFromStorage();
@@ -30,13 +31,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     if (auth) {
       setAuthData(JSON.parse(auth));
     }
-    -setLoading(false);
+    setLoading(false);
   }
 
   async function signIn(email: string, password: string): Promise<AuthData> {
     const auth = await AuthService.signIn(email, password);
     setAuthData(auth);
-    AsyncStorage.setItem('@token', JSON.stringify(auth));
+    AsyncStorage.setItem('@token', JSON.stringify(auth.token));
     return auth;
   }
 
