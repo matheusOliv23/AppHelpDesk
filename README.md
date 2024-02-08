@@ -1,8 +1,19 @@
 # HelpDeskApp - ReactNative
 
+![gif](https://github.com/matheusOliv23/AppHelpDesk/assets/78116908/869a601f-46c8-4e2f-bac0-56f8fed988e0)
+
+
 ## Objetivo da aplicação
 
 Esse app serve para criar solicitações, informando qual o problema a ser resolvido e depois a solução dele.
+
+## Funcionalidades
+
+- Cadastro de novo usuário
+- Entrar na sessão do usuário
+- Visualizar lista de solicitações Em andamento e Finalizadas
+- Abrir uma nova solicitação
+- Concluir solicitação enviando uma solução
 
 ## Tecnologias e Conceitos
 
